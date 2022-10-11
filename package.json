@@ -1,0 +1,27 @@
+{
+  "name": "check-log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18270219411/check-log.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/18270219411/check-log/issues"
+  },
+  "homepage": "https://github.com/18270219411/check-log#readme",
+  "devDependencies": {
+    "chalk": "^5.1.0",
+    "minimist": "^1.2.7",
+    "shelljs": "^0.8.5",
+    "simple-git": "^3.14.1"
+  }
+}
