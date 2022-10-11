@@ -6,7 +6,7 @@ const path = require('path');
 const NeedCheckExtends = ['.js', '.ts', '.jsx', '.tsx'];
 // 需提供完整路径，防止重名文件影响
 // eg: utils/index.ts
-const IgnoreFils = [];
+const IgnoreFils = ['example/ignoreFiles/ignoreFile.js', 'index.js'];
 
 const args = require('minimist')(process.argv.slice(2));
 const referenceBranch = args.m || 'main';
@@ -50,17 +50,15 @@ async function check() {
         const filePath = tmpArray[0].trim();
         const extname = path.extname(filePath);
 
-        if (NeedCheckExtends.indexOf(extname) !== -1 && IgnoreFils.indexOf(filePath) < 0) {
+        if (NeedCheckExtends.indexOf(extname) !== -1 && IgnoreFils.indexOf(filePath) < 0 && filePath) {
           needCheckFiles.push(filePath);
         }
       }
     }
-
-    needCheckFiles = needCheckFiles.filter((i) => !!i);
   }
 
   if (needCheckFiles.length) {
-    console.log('\n');
+    console.log(chalk.green('\n【检测结果】'));
 
     shell
       .grep('-n', 'console.log', needCheckFiles)
