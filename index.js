@@ -63,7 +63,7 @@ async function check() {
     console.log('\n');
 
     shell
-      .grep('-n', 'console', needCheckFiles)
+      .grep('-n', 'console.log', needCheckFiles)
       .stdout.split('\n')
       .forEach((i) => {
         if (i.match('console')) {
