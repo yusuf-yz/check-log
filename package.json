@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/18270219411/check-log#readme",
   "devDependencies": {
-    "chalk": "^5.1.0",
+    "chalk": "^4.1.2",
     "minimist": "^1.2.7",
     "shelljs": "^0.8.5",
     "simple-git": "^3.14.1"

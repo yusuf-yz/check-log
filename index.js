@@ -9,8 +9,8 @@ const NeedCheckExtends = ['.js', '.ts', '.jsx', '.tsx'];
 const IgnoreFils = [];
 
 const args = require('minimist')(process.argv.slice(2));
-const referenceBranch = args.m || 'develop';
-const businessBranch = args.b || '';
+const referenceBranch = args.m || 'main';
+let businessBranch = args.b || '';
 const project = args.p || path.resolve(__dirname);
 
 function getCurrentBranch(git) {
@@ -35,7 +35,7 @@ async function check() {
   }
 
   console.log(chalk.green(`【参照分支：${referenceBranch}，当前分支：${businessBranch}】\n`));
-  console.log(chalk.foregroundColors('【变更文件】：'));
+  console.log(chalk.red('【变更文件】：'));
 
   const diffCmd = `git diff ${referenceBranch} ${businessBranch} --stat`;
   const diffRef = shell.exec(diffCmd);
@@ -78,3 +78,5 @@ async function check() {
   const totalTime = parseInt((endTime - startTime) / 1000, 10);
   console.log(`检测耗时：${chalk.red(totalTime + 's')}`);
 }
+
+check();
